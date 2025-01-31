@@ -1,10 +1,16 @@
-name: Practice
+name: "Practice"
 
 on: [push, pull_request]
 
+env:
+  NAME: Kalman
+
 jobs:
   Practice:
-    name: practice
+    name: Practice
     runs-on: ubuntu-latest
-    run: |
-      echo "Hello world"
+    steps:
+    - name: checkout repository
+      uses: actions/checkout@v3
+    - name: echo
+      run: echo "Hello ${{ env.NAME}}"
